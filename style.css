@@ -1,0 +1,299 @@
+/* --- Global Variables & Reset --- */
+:root {
+    --bg-main: #0d1117;
+    --bg-alt: #161b22;
+    --text-main: #c9d1d9;
+    --text-highlight: #58a6ff;
+    --accent: #2ea043;
+    --font-mono: 'Fira Code', monospace;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-family: var(--font-mono);
+    color: var(--text-highlight);
+}
+
+.section-title::before {
+    content: "/* ";
+}
+.section-title::after {
+    content: " */";
+}
+
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: rgba(13, 17, 23, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #30363d;
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-highlight);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-highlight);
+}
+
+/* --- Hero Section --- */
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes text left, image right */
+    gap: 4rem; /* Adds space between text and image */
+    padding: 0 5%;
+    margin-top: 2rem;
+}
+
+.hero-content {
+    flex: 1; /* Takes up available space */
+    max-width: 600px;
+}
+.greeting {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    line-height: 1.1;
+}
+
+.hero h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #8b949e;
+}
+
+.bio {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 2rem 0;
+}
+
+/* --- Hero Image Styling --- */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 400px; /* Controls how large the photo gets */
+    border-radius: 20px; /* Rounds the corners */
+    border: 2px solid var(--text-highlight); /* Blue border */
+    box-shadow: 0 10px 30px rgba(88, 166, 255, 0.15); /* Subtle blue glow */
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: transparent;
+    color: var(--text-highlight);
+    border: 1px solid var(--text-highlight);
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgba(88, 166, 255, 0.1);
+}
+
+/* --- Sections & Layout --- */
+.section {
+    padding: 5rem 5%;
+}
+
+.bg-alt {
+    background-color: var(--bg-alt);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* --- Cards (Services) --- */
+.card {
+    background-color: var(--bg-main);
+    padding: 2rem;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--text-highlight);
+}
+
+/* --- Project Cards --- */
+.project-card {
+    background-color: var(--bg-main);
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.project-photo {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Placeholders for project images */
+.placeholder-1 { background-color: #1f6feb; }
+.placeholder-2 { background-color: #238636; }
+
+.project-info {
+    padding: 1.5rem;
+}
+
+/* --- Footer / Contact --- */
+.footer {
+    text-align: center;
+    padding: 5rem 5%;
+    border-top: 1px solid #30363d;
+}
+
+.footer h2 {
+    font-size: 2.5rem;
+}
+
+.footer p {
+    margin-bottom: 2rem;
+}
+
+.social-links {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-family: var(--font-mono);
+}
+
+.social-links a:hover {
+    color: var(--text-highlight);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #8b949e;
+}
+
+/* --- Mobile Responsiveness --- */
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; 
+    }
+    
+    .hero {
+        flex-direction: column-reverse; /* Stacks image on top, text on bottom */
+        justify-content: center;
+        text-align: center;
+        height: auto;
+        padding-top: 8rem; /* Makes room for the navbar */
+        gap: 2rem;
+    }
+
+    .hero-image img {
+        max-width: 250px; /* Makes the photo a bit smaller on phones */
+    }
+}
+/* --- Logo Placement & Animation --- */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px); /* Start slightly higher */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);    /* Drop into place */
+    }
+}
+
+.logo img {
+    /* Set the size of the logo in the navbar */
+    height: 100px; /* Adjust this number to scale the logo */
+    width: auto;
+    display: block;
+    
+    /* Apply the fade-in and drop-down animation */
+    opacity: 0; /* Ensures it starts invisible */
+    animation: fadeInDown 1.5s ease-out forwards; /* Runs once over 1.5 seconds */
+    
+    /* Optional: Add a subtle hover interaction */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05); /* Slight growth on hover */
+    filter: brightness(1.2); /* Slight brightening on hover */
+}
