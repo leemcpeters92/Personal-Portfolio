@@ -249,22 +249,79 @@ h1, h2, h3 {
 
 /* --- Mobile Responsiveness --- */
 
+/* --- Hamburger Menu Icon --- */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    gap: 6px;
+    flex-direction: column;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-highlight);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
 @media (max-width: 768px) {
-    .nav-links {
-        display: none; 
+    .hamburger {
+        display: flex; /* Shows the hamburger on mobile */
     }
-    
+
+    .nav-links {
+        /* Remove 'display: none;' and use absolute positioning for the dropdown */
+        position: absolute;
+        top: 100%; /* Places it directly under the navbar */
+        left: 0;
+        width: 100%;
+        background-color: rgba(13, 17, 23, 0.98); /* Slightly less transparent for readability */
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 2rem;
+        border-bottom: 1px solid #30363d;
+        
+        /* Hide it by pulling it up and fading it out */
+        transform: translateY(-150%);
+        opacity: 0;
+        pointer-events: none; /* Prevents clicking when hidden */
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* This class will be toggled by JavaScript */
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    /* Optional: Animate the hamburger into an "X" when open */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* ... Keep your existing .hero and .hero-image img rules here ... */
     .hero {
-        flex-direction: column-reverse; /* Stacks image on top, text on bottom */
+        flex-direction: column-reverse;
         justify-content: center;
         text-align: center;
         height: auto;
-        padding-top: 8rem; /* Makes room for the navbar */
+        padding-top: 8rem;
         gap: 2rem;
     }
 
     .hero-image img {
-        max-width: 250px; /* Makes the photo a bit smaller on phones */
+        max-width: 250px;
     }
 }
 /* --- Logo Placement & Animation --- */
