@@ -168,12 +168,23 @@ h1, h2, h3 {
     margin: 0 auto;
 }
 
-.grid {
+/*.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+}*/
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* This centers the items on the bottom row */
+    gap: 2rem;
 }
 
+/* Ensure the cards inside the grid maintain a consistent size */
+.grid > * {
+    flex: 1 1 300px; /* Grow, shrink, and start at a base width of 300px */
+    max-width: 450px; /* Prevents a single centered item from stretching across the whole screen */
+}
 /* --- Cards (Services) --- */
 .card {
     background-color: var(--bg-main);
